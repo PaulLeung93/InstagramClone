@@ -6,7 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="LoginActivity" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="MainActivity" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="info" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
@@ -14,12 +14,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d4822df-65fd-4772-b9d6-fee04580c379" name="Default Changelist" comment="Fixed: user goes to main activity after successful sign up">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="1d4822df-65fd-4772-b9d6-fee04580c379" name="Default Changelist" comment="Added layouts for MainActivity.java to feature Image capture screen. Created Post.java to connect to Post database">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/instagramclone/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/instagramclone/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/instagramclone/ParseApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/instagramclone/ParseApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -222,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634572630907</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Added layouts for MainActivity.java to feature Image capture screen. Created Post.java to connect to Post database">
+      <created>1634578277934</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1634578277934</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -259,6 +263,7 @@
     <MESSAGE value="Revert &quot;Delete InstagramClone directory&quot;&#10;&#10;This reverts commit 7b0e7799" />
     <MESSAGE value="Added Sign up button to store users information using parse" />
     <MESSAGE value="Fixed: user goes to main activity after successful sign up" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed: user goes to main activity after successful sign up" />
+    <MESSAGE value="Added layouts for MainActivity.java to feature Image capture screen. Created Post.java to connect to Post database" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added layouts for MainActivity.java to feature Image capture screen. Created Post.java to connect to Post database" />
   </component>
 </project>
