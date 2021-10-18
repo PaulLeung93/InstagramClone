@@ -7,15 +7,17 @@
   </component>
   <component name="AndroidLogFilters">
     <option name="TOOL_WINDOW_CUSTOM_FILTER" value="MainActivity" />
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="info" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d4822df-65fd-4772-b9d6-fee04580c379" name="Default Changelist" comment="SetOnClick Listener for submit button when user enters Post description">
+    <list default="true" id="1d4822df-65fd-4772-b9d6-fee04580c379" name="Default Changelist" comment="Explicit intent for MediaStore.ACTION_IMAGE_CAPTURE on btnCaptureImage click">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/instagramclone/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/instagramclone/MainActivity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,6 +42,7 @@
       <list>
         <option value="layoutResourceFile" />
         <option value="Class" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -232,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634589638103</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Explicit intent for MediaStore.ACTION_IMAGE_CAPTURE on btnCaptureImage click">
+      <created>1634591721011</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1634591721011</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -271,6 +281,7 @@
     <MESSAGE value="Fixed: user goes to main activity after successful sign up" />
     <MESSAGE value="Added layouts for MainActivity.java to feature Image capture screen. Created Post.java to connect to Post database" />
     <MESSAGE value="SetOnClick Listener for submit button when user enters Post description" />
-    <option name="LAST_COMMIT_MESSAGE" value="SetOnClick Listener for submit button when user enters Post description" />
+    <MESSAGE value="Explicit intent for MediaStore.ACTION_IMAGE_CAPTURE on btnCaptureImage click" />
+    <option name="LAST_COMMIT_MESSAGE" value="Explicit intent for MediaStore.ACTION_IMAGE_CAPTURE on btnCaptureImage click" />
   </component>
 </project>
