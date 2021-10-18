@@ -1,0 +1,74 @@
+<changelist name="Direct_users_to_MainActivity_java_when_already_logined" date="1634525224695" recycled="false">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Direct_users_to_MainActivity_java_when_already_logined/shelved.patch" />
+  <option name="DESCRIPTION" value="Direct users to MainActivity.java when already logined" />
+  <binary>
+    <option name="BEFORE_PATH" value="../.idea/.name" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="../app/src/main/res/mipmap-hdpi/ic_launcher.webp" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="../app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="../app/src/main/res/mipmap-mdpi/ic_launcher.webp" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="../app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="../app/src/main/res/mipmap-xhdpi/ic_launcher.webp" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="../app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="../app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="../app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="../app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="../app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="../gradle/wrapper/gradle-wrapper.jar" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="../gradlew" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="../gradlew.bat" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+</changelist>

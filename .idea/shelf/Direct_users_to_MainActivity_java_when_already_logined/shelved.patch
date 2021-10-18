@@ -1,0 +1,917 @@
+Index: ../.idea/compiler.xml
+===================================================================
+diff --git a/../.idea/compiler.xml b/../.idea/compiler.xml
+deleted file mode 100644
+--- a/../.idea/compiler.xml	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
++++ /dev/null	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="CompilerConfiguration">
+-    <bytecodeTargetLevel target="11" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: ../.idea/gradle.xml
+===================================================================
+diff --git a/../.idea/gradle.xml b/../.idea/gradle.xml
+deleted file mode 100644
+--- a/../.idea/gradle.xml	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
++++ /dev/null	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
+@@ -1,20 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="GradleMigrationSettings" migrationVersion="1" />
+-  <component name="GradleSettings">
+-    <option name="linkedExternalProjectsSettings">
+-      <GradleProjectSettings>
+-        <option name="testRunner" value="GRADLE" />
+-        <option name="distributionType" value="DEFAULT_WRAPPED" />
+-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+-        <option name="modules">
+-          <set>
+-            <option value="$PROJECT_DIR$" />
+-            <option value="$PROJECT_DIR$/app" />
+-          </set>
+-        </option>
+-        <option name="resolveModulePerSourceSet" value="false" />
+-      </GradleProjectSettings>
+-    </option>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: ../.idea/misc.xml
+===================================================================
+diff --git a/../.idea/misc.xml b/../.idea/misc.xml
+deleted file mode 100644
+--- a/../.idea/misc.xml	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
++++ /dev/null	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
+@@ -1,4 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+-</project>
+\ No newline at end of file
+Index: ../app/src/androidTest/java/com/example/simpletodo/ExampleInstrumentedTest.java
+===================================================================
+diff --git a/../app/src/androidTest/java/com/example/simpletodo/ExampleInstrumentedTest.java b/../app/src/androidTest/java/com/example/simpletodo/ExampleInstrumentedTest.java
+deleted file mode 100644
+--- a/../app/src/androidTest/java/com/example/simpletodo/ExampleInstrumentedTest.java	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
++++ /dev/null	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
+@@ -1,26 +0,0 @@
+-package com.example.simpletodo;
+-
+-import android.content.Context;
+-
+-import androidx.test.platform.app.InstrumentationRegistry;
+-import androidx.test.ext.junit.runners.AndroidJUnit4;
+-
+-import org.junit.Test;
+-import org.junit.runner.RunWith;
+-
+-import static org.junit.Assert.*;
+-
+-/**
+- * Instrumented test, which will execute on an Android device.
+- *
+- * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
+- */
+-@RunWith(AndroidJUnit4.class)
+-public class ExampleInstrumentedTest {
+-    @Test
+-    public void useAppContext() {
+-        // Context of the app under test.
+-        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+-        assertEquals("com.example.simpletodo", appContext.getPackageName());
+-    }
+-}
+\ No newline at end of file
+Index: ../app/src/main/java/com/example/simpletodo/itemsAdapter.java
+===================================================================
+diff --git a/../app/src/main/java/com/example/simpletodo/itemsAdapter.java b/../app/src/main/java/com/example/simpletodo/itemsAdapter.java
+deleted file mode 100644
+--- a/../app/src/main/java/com/example/simpletodo/itemsAdapter.java	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
++++ /dev/null	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
+@@ -1,66 +0,0 @@
+-package com.example.simpletodo;
+-
+-import android.view.LayoutInflater;
+-import android.view.View;
+-import android.view.ViewGroup;
+-import android.widget.TextView;
+-
+-import androidx.annotation.NonNull;
+-import androidx.recyclerview.widget.RecyclerView;
+-
+-import java.util.List;
+-
+-public class itemsAdapter extends RecyclerView.Adapter<itemsAdapter.ViewHolder> {
+-
+-    public interface OnLongClickListener{
+-        void onItemLongClicked(int position);
+-    }
+-
+-    List<String> items;
+-    OnLongClickListener longClickListener;
+-    public itemsAdapter(List<String> items, OnLongClickListener longClickListener) {
+-        this.items = items;
+-        this.longClickListener = longClickListener;
+-    }
+-
+-    @NonNull
+-    @Override
+-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+-        View todoView = LayoutInflater.from(parent.getContext()).inflate(android.R.layout.simple_list_item_1, parent, false);
+-        return new ViewHolder(todoView);
+-    }
+-
+-    @Override
+-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+-        String item = items.get(position);
+-        holder.bind(item);
+-
+-    }
+-
+-    @Override
+-    public int getItemCount() {
+-        return items.size();
+-    }
+-
+-    class ViewHolder extends RecyclerView.ViewHolder {
+-
+-        TextView tvItem;
+-
+-        public ViewHolder(@NonNull View itemView) {
+-            super(itemView);
+-            tvItem = itemView.findViewById(android.R.id.text1);
+-        }
+-
+-        public void bind(String item) {
+-            tvItem.setText(item);
+-            tvItem.setOnLongClickListener(new View.OnLongClickListener() {
+-                @Override
+-                public boolean onLongClick(View v) {
+-                    longClickListener.onItemLongClicked(getAdapterPosition());
+-                    return false;
+-                }
+-            });
+-        }
+-    }
+-
+-}
+Index: ../app/src/main/java/com/example/simpletodo/MainActivity.java
+===================================================================
+diff --git a/../app/src/main/java/com/example/simpletodo/MainActivity.java b/../app/src/main/java/com/example/simpletodo/MainActivity.java
+deleted file mode 100644
+--- a/../app/src/main/java/com/example/simpletodo/MainActivity.java	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
++++ /dev/null	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
+@@ -1,94 +0,0 @@
+-package com.example.simpletodo;
+-
+-import androidx.appcompat.app.AppCompatActivity;
+-import androidx.recyclerview.widget.LinearLayoutManager;
+-import androidx.recyclerview.widget.RecyclerView;
+-
+-import android.os.Bundle;
+-import org.apache.commons.io.FileUtils;
+-//import android.os.FileUtils;
+-import android.util.Log;
+-import android.view.View;
+-import android.widget.Button;
+-import android.widget.EditText;
+-import android.widget.Toast;
+-
+-import java.io.File;
+-import java.io.IOException;
+-import java.nio.charset.Charset;
+-import java.util.ArrayList;
+-import java.util.List;
+-
+-public class MainActivity extends AppCompatActivity {
+-
+-    List<String> items;
+-
+-    Button btnAdd;
+-    EditText etItem;
+-    RecyclerView rvItems;
+-    itemsAdapter itemsAdapter;
+-
+-    @Override
+-    protected void onCreate(Bundle savedInstanceState) {
+-        super.onCreate(savedInstanceState);
+-        setContentView(R.layout.activity_main);
+-
+-        btnAdd = findViewById(R.id.btnAdd);
+-        etItem = findViewById(R.id.etItem);
+-        rvItems = findViewById(R.id.rvItems);
+-
+-
+-        loadItems();
+-
+-
+-       itemsAdapter.OnLongClickListener onLongClickListener = new itemsAdapter.OnLongClickListener(){
+-            @Override
+-            public void onItemLongClicked(int position) {
+-                items.remove(position);
+-                itemsAdapter.notifyItemRemoved(position);
+-                Toast.makeText(getApplicationContext(), "Item was removed", Toast.LENGTH_SHORT).show();
+-                saveItems();
+-            }
+-        };
+-
+-        itemsAdapter = new itemsAdapter(items, onLongClickListener);
+-        rvItems.setAdapter(itemsAdapter);
+-        rvItems.setLayoutManager(new LinearLayoutManager(this));
+-
+-        btnAdd.setOnClickListener(new View.OnClickListener() {
+-            @Override
+-            public void onClick(View view) {
+-                String todoItem = etItem.getText().toString();
+-                items.add(todoItem);
+-                itemsAdapter.notifyItemInserted(items.size() - 1);
+-                etItem.setText("");
+-                Toast.makeText(getApplicationContext(), "Item was added", Toast.LENGTH_SHORT).show();
+-                saveItems();
+-            }
+-        });
+-    }
+-    private File getDataFile(){
+-        return new File(getFilesDir(), "data.txt");
+-    }
+-
+-    private void loadItems(){
+-        try {
+-            items = new ArrayList<>(FileUtils.readLines(getDataFile(), Charset.defaultCharset()));
+-        }catch (IOException e){
+-            Log.e("MainActivity", "Error reading items", e);
+-            items = new ArrayList<>();
+-
+-        }
+-    }
+-
+-    private void saveItems() {
+-        try {
+-            FileUtils.writeLines(getDataFile(), items);
+-        }catch (IOException e){
+-            Log.e("MainActivity", "Error writing items", e);
+-        }
+-    }
+-
+-}
+-
+-
+Index: ../app/src/main/res/drawable/ic_launcher_background.xml
+===================================================================
+diff --git a/../app/src/main/res/drawable/ic_launcher_background.xml b/../app/src/main/res/drawable/ic_launcher_background.xml
+deleted file mode 100644
+--- a/../app/src/main/res/drawable/ic_launcher_background.xml	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
++++ /dev/null	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
+@@ -1,170 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<vector xmlns:android="http://schemas.android.com/apk/res/android"
+-    android:width="108dp"
+-    android:height="108dp"
+-    android:viewportWidth="108"
+-    android:viewportHeight="108">
+-    <path
+-        android:fillColor="#3DDC84"
+-        android:pathData="M0,0h108v108h-108z" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M9,0L9,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M19,0L19,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M29,0L29,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M39,0L39,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M49,0L49,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M59,0L59,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M69,0L69,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M79,0L79,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M89,0L89,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M99,0L99,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,9L108,9"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,19L108,19"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,29L108,29"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,39L108,39"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,49L108,49"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,59L108,59"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,69L108,69"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,79L108,79"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,89L108,89"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,99L108,99"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M19,29L89,29"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M19,39L89,39"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M19,49L89,49"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M19,59L89,59"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M19,69L89,69"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M19,79L89,79"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M29,19L29,89"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M39,19L39,89"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M49,19L49,89"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M59,19L59,89"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M69,19L69,89"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M79,19L79,89"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-</vector>
+Index: ../app/src/main/res/drawable-v24/ic_launcher_foreground.xml
+===================================================================
+diff --git a/../app/src/main/res/drawable-v24/ic_launcher_foreground.xml b/../app/src/main/res/drawable-v24/ic_launcher_foreground.xml
+deleted file mode 100644
+--- a/../app/src/main/res/drawable-v24/ic_launcher_foreground.xml	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
++++ /dev/null	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
+@@ -1,30 +0,0 @@
+-<vector xmlns:android="http://schemas.android.com/apk/res/android"
+-    xmlns:aapt="http://schemas.android.com/aapt"
+-    android:width="108dp"
+-    android:height="108dp"
+-    android:viewportWidth="108"
+-    android:viewportHeight="108">
+-    <path android:pathData="M31,63.928c0,0 6.4,-11 12.1,-13.1c7.2,-2.6 26,-1.4 26,-1.4l38.1,38.1L107,108.928l-32,-1L31,63.928z">
+-        <aapt:attr name="android:fillColor">
+-            <gradient
+-                android:endX="85.84757"
+-                android:endY="92.4963"
+-                android:startX="42.9492"
+-                android:startY="49.59793"
+-                android:type="linear">
+-                <item
+-                    android:color="#44000000"
+-                    android:offset="0.0" />
+-                <item
+-                    android:color="#00000000"
+-                    android:offset="1.0" />
+-            </gradient>
+-        </aapt:attr>
+-    </path>
+-    <path
+-        android:fillColor="#FFFFFF"
+-        android:fillType="nonZero"
+-        android:pathData="M65.3,45.828l3.8,-6.6c0.2,-0.4 0.1,-0.9 -0.3,-1.1c-0.4,-0.2 -0.9,-0.1 -1.1,0.3l-3.9,6.7c-6.3,-2.8 -13.4,-2.8 -19.7,0l-3.9,-6.7c-0.2,-0.4 -0.7,-0.5 -1.1,-0.3C38.8,38.328 38.7,38.828 38.9,39.228l3.8,6.6C36.2,49.428 31.7,56.028 31,63.928h46C76.3,56.028 71.8,49.428 65.3,45.828zM43.4,57.328c-0.8,0 -1.5,-0.5 -1.8,-1.2c-0.3,-0.7 -0.1,-1.5 0.4,-2.1c0.5,-0.5 1.4,-0.7 2.1,-0.4c0.7,0.3 1.2,1 1.2,1.8C45.3,56.528 44.5,57.328 43.4,57.328L43.4,57.328zM64.6,57.328c-0.8,0 -1.5,-0.5 -1.8,-1.2s-0.1,-1.5 0.4,-2.1c0.5,-0.5 1.4,-0.7 2.1,-0.4c0.7,0.3 1.2,1 1.2,1.8C66.5,56.528 65.6,57.328 64.6,57.328L64.6,57.328z"
+-        android:strokeWidth="1"
+-        android:strokeColor="#00000000" />
+-</vector>
+\ No newline at end of file
+Index: ../app/src/main/res/layout/activity_main.xml
+===================================================================
+diff --git a/../app/src/main/res/layout/activity_main.xml b/../app/src/main/res/layout/activity_main.xml
+deleted file mode 100644
+--- a/../app/src/main/res/layout/activity_main.xml	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
++++ /dev/null	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
+@@ -1,43 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<RelativeLayout
+-    xmlns:android="http://schemas.android.com/apk/res/android"
+-    xmlns:app="http://schemas.android.com/apk/res-auto"
+-    xmlns:tools="http://schemas.android.com/tools"
+-    android:layout_width="match_parent"
+-    android:layout_height="match_parent"
+-    tools:context=".MainActivity">
+-
+-    <Button
+-        android:id="@+id/btnAdd"
+-        android:layout_width="wrap_content"
+-        android:layout_height="wrap_content"
+-        android:layout_alignParentEnd="true"
+-        android:layout_alignParentBottom="true"
+-        android:layout_marginEnd="0dp"
+-        android:layout_marginBottom="0dp"
+-        android:text="Add" />
+-
+-    <EditText
+-        android:id="@+id/etItem"
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        android:layout_alignParentStart="true"
+-        android:layout_alignParentBottom="true"
+-        android:layout_marginStart="0dp"
+-        android:layout_marginEnd="0dp"
+-        android:layout_toStartOf="@+id/btnAdd"
+-        android:ems="10"
+-        android:hint="Add an item here!" />
+-
+-    <androidx.recyclerview.widget.RecyclerView
+-        android:id="@+id/rvItems"
+-        android:layout_width="match_parent"
+-        android:layout_height="match_parent"
+-        android:layout_above="@+id/etItem"
+-        android:layout_alignParentStart="true"
+-        android:layout_alignParentTop="true"
+-        android:layout_centerHorizontal="true"
+-        android:layout_marginStart="0dp"
+-        android:layout_marginTop="0dp"
+-        android:layout_marginBottom="0dp" />
+-</RelativeLayout>
+\ No newline at end of file
+Index: ../app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+===================================================================
+diff --git a/../app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml b/../app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+deleted file mode 100644
+--- a/../app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
++++ /dev/null	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
+@@ -1,5 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+-    <background android:drawable="@drawable/ic_launcher_background" />
+-    <foreground android:drawable="@drawable/ic_launcher_foreground" />
+-</adaptive-icon>
+\ No newline at end of file
+Index: ../app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+===================================================================
+diff --git a/../app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml b/../app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+deleted file mode 100644
+--- a/../app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
++++ /dev/null	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
+@@ -1,5 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+-    <background android:drawable="@drawable/ic_launcher_background" />
+-    <foreground android:drawable="@drawable/ic_launcher_foreground" />
+-</adaptive-icon>
+\ No newline at end of file
+Index: ../app/src/main/res/values/colors.xml
+===================================================================
+diff --git a/../app/src/main/res/values/colors.xml b/../app/src/main/res/values/colors.xml
+deleted file mode 100644
+--- a/../app/src/main/res/values/colors.xml	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
++++ /dev/null	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
+@@ -1,10 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<resources>
+-    <color name="purple_200">#FFBB86FC</color>
+-    <color name="purple_500">#FF6200EE</color>
+-    <color name="purple_700">#FF3700B3</color>
+-    <color name="teal_200">#FF03DAC5</color>
+-    <color name="teal_700">#FF018786</color>
+-    <color name="black">#FF000000</color>
+-    <color name="white">#FFFFFFFF</color>
+-</resources>
+\ No newline at end of file
+Index: ../app/src/main/res/values/strings.xml
+===================================================================
+diff --git a/../app/src/main/res/values/strings.xml b/../app/src/main/res/values/strings.xml
+deleted file mode 100644
+--- a/../app/src/main/res/values/strings.xml	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
++++ /dev/null	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
+@@ -1,3 +0,0 @@
+-<resources>
+-    <string name="app_name">SimpleToDo</string>
+-</resources>
+\ No newline at end of file
+Index: ../app/src/main/res/values/themes.xml
+===================================================================
+diff --git a/../app/src/main/res/values/themes.xml b/../app/src/main/res/values/themes.xml
+deleted file mode 100644
+--- a/../app/src/main/res/values/themes.xml	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
++++ /dev/null	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
+@@ -1,16 +0,0 @@
+-<resources xmlns:tools="http://schemas.android.com/tools">
+-    <!-- Base application theme. -->
+-    <style name="Theme.SimpleToDo" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+-        <!-- Primary brand color. -->
+-        <item name="colorPrimary">@color/purple_500</item>
+-        <item name="colorPrimaryVariant">@color/purple_700</item>
+-        <item name="colorOnPrimary">@color/white</item>
+-        <!-- Secondary brand color. -->
+-        <item name="colorSecondary">@color/teal_200</item>
+-        <item name="colorSecondaryVariant">@color/teal_700</item>
+-        <item name="colorOnSecondary">@color/black</item>
+-        <!-- Status bar color. -->
+-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+-        <!-- Customize your theme here. -->
+-    </style>
+-</resources>
+\ No newline at end of file
+Index: ../app/src/main/res/values-night/themes.xml
+===================================================================
+diff --git a/../app/src/main/res/values-night/themes.xml b/../app/src/main/res/values-night/themes.xml
+deleted file mode 100644
+--- a/../app/src/main/res/values-night/themes.xml	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
++++ /dev/null	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
+@@ -1,16 +0,0 @@
+-<resources xmlns:tools="http://schemas.android.com/tools">
+-    <!-- Base application theme. -->
+-    <style name="Theme.SimpleToDo" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+-        <!-- Primary brand color. -->
+-        <item name="colorPrimary">@color/purple_200</item>
+-        <item name="colorPrimaryVariant">@color/purple_700</item>
+-        <item name="colorOnPrimary">@color/black</item>
+-        <!-- Secondary brand color. -->
+-        <item name="colorSecondary">@color/teal_200</item>
+-        <item name="colorSecondaryVariant">@color/teal_200</item>
+-        <item name="colorOnSecondary">@color/black</item>
+-        <!-- Status bar color. -->
+-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+-        <!-- Customize your theme here. -->
+-    </style>
+-</resources>
+\ No newline at end of file
+Index: ../app/src/main/AndroidManifest.xml
+===================================================================
+diff --git a/../app/src/main/AndroidManifest.xml b/../app/src/main/AndroidManifest.xml
+deleted file mode 100644
+--- a/../app/src/main/AndroidManifest.xml	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
++++ /dev/null	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
+@@ -1,23 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+-    package="com.example.simpletodo">
+-
+-    <application
+-        android:allowBackup="true"
+-        android:icon="@mipmap/ic_launcher"
+-        android:label="@string/app_name"
+-        android:roundIcon="@mipmap/ic_launcher_round"
+-        android:supportsRtl="true"
+-        android:theme="@style/Theme.SimpleToDo">
+-        <activity
+-            android:name=".MainActivity"
+-            android:exported="true">
+-            <intent-filter>
+-                <action android:name="android.intent.action.MAIN" />
+-
+-                <category android:name="android.intent.category.LAUNCHER" />
+-            </intent-filter>
+-        </activity>
+-    </application>
+-
+-</manifest>
+\ No newline at end of file
+Index: ../app/src/test/java/com/example/simpletodo/ExampleUnitTest.java
+===================================================================
+diff --git a/../app/src/test/java/com/example/simpletodo/ExampleUnitTest.java b/../app/src/test/java/com/example/simpletodo/ExampleUnitTest.java
+deleted file mode 100644
+--- a/../app/src/test/java/com/example/simpletodo/ExampleUnitTest.java	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
++++ /dev/null	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
+@@ -1,17 +0,0 @@
+-package com.example.simpletodo;
+-
+-import org.junit.Test;
+-
+-import static org.junit.Assert.*;
+-
+-/**
+- * Example local unit test, which will execute on the development machine (host).
+- *
+- * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
+- */
+-public class ExampleUnitTest {
+-    @Test
+-    public void addition_isCorrect() {
+-        assertEquals(4, 2 + 2);
+-    }
+-}
+\ No newline at end of file
+Index: ../app/.gitignore
+===================================================================
+diff --git a/../app/.gitignore b/../app/.gitignore
+deleted file mode 100644
+--- a/../app/.gitignore	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
++++ /dev/null	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
+@@ -1,1 +0,0 @@
+-/build
+\ No newline at end of file
+Index: ../app/build.gradle
+===================================================================
+diff --git a/../app/build.gradle b/../app/build.gradle
+deleted file mode 100644
+--- a/../app/build.gradle	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
++++ /dev/null	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
+@@ -1,39 +0,0 @@
+-plugins {
+-    id 'com.android.application'
+-}
+-
+-android {
+-    compileSdk 30
+-
+-    defaultConfig {
+-        applicationId "com.example.simpletodo"
+-        minSdk 21
+-        targetSdk 30
+-        versionCode 1
+-        versionName "1.0"
+-
+-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+-    }
+-
+-    buildTypes {
+-        release {
+-            minifyEnabled false
+-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+-        }
+-    }
+-    compileOptions {
+-        sourceCompatibility JavaVersion.VERSION_1_8
+-        targetCompatibility JavaVersion.VERSION_1_8
+-    }
+-}
+-
+-dependencies {
+-
+-    implementation 'androidx.appcompat:appcompat:1.2.0'
+-    implementation 'com.google.android.material:material:1.3.0'
+-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+-    testImplementation 'junit:junit:4.+'
+-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+-    implementation 'commons-io:commons-io:2.6'
+-}
+\ No newline at end of file
+Index: ../app/proguard-rules.pro
+===================================================================
+diff --git a/../app/proguard-rules.pro b/../app/proguard-rules.pro
+deleted file mode 100644
+--- a/../app/proguard-rules.pro	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
++++ /dev/null	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
+@@ -1,21 +0,0 @@
+-# Add project specific ProGuard rules here.
+-# You can control the set of applied configuration files using the
+-# proguardFiles setting in build.gradle.
+-#
+-# For more details, see
+-#   http://developer.android.com/guide/developing/tools/proguard.html
+-
+-# If your project uses WebView with JS, uncomment the following
+-# and specify the fully qualified class name to the JavaScript interface
+-# class:
+-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+-#   public *;
+-#}
+-
+-# Uncomment this to preserve the line number information for
+-# debugging stack traces.
+-#-keepattributes SourceFile,LineNumberTable
+-
+-# If you keep the line number information, uncomment this to
+-# hide the original source file name.
+-#-renamesourcefileattribute SourceFile
+\ No newline at end of file
+Index: ../gradle/wrapper/gradle-wrapper.properties
+===================================================================
+diff --git a/../gradle/wrapper/gradle-wrapper.properties b/../gradle/wrapper/gradle-wrapper.properties
+deleted file mode 100644
+--- a/../gradle/wrapper/gradle-wrapper.properties	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
++++ /dev/null	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
+@@ -1,6 +0,0 @@
+-#Fri Sep 10 12:51:25 EDT 2021
+-distributionBase=GRADLE_USER_HOME
+-distributionUrl=https\://services.gradle.org/distributions/gradle-7.0.2-bin.zip
+-distributionPath=wrapper/dists
+-zipStorePath=wrapper/dists
+-zipStoreBase=GRADLE_USER_HOME
+Index: ../.gitignore
+===================================================================
+diff --git a/../.gitignore b/../.gitignore
+deleted file mode 100644
+--- a/../.gitignore	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
++++ /dev/null	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
+@@ -1,15 +0,0 @@
+-*.iml
+-.gradle
+-/local.properties
+-/.idea/caches
+-/.idea/libraries
+-/.idea/modules.xml
+-/.idea/workspace.xml
+-/.idea/navEditor.xml
+-/.idea/assetWizardSettings.xml
+-.DS_Store
+-/build
+-/captures
+-.externalNativeBuild
+-.cxx
+-local.properties
+Index: ../build.gradle
+===================================================================
+diff --git a/../build.gradle b/../build.gradle
+deleted file mode 100644
+--- a/../build.gradle	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
++++ /dev/null	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
+@@ -1,17 +0,0 @@
+-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+-buildscript {
+-    repositories {
+-        google()
+-        mavenCentral()
+-    }
+-    dependencies {
+-        classpath "com.android.tools.build:gradle:7.0.2"
+-
+-        // NOTE: Do not place your application dependencies here; they belong
+-        // in the individual module build.gradle files
+-    }
+-}
+-
+-task clean(type: Delete) {
+-    delete rootProject.buildDir
+-}
+\ No newline at end of file
+Index: ../gradle.properties
+===================================================================
+diff --git a/../gradle.properties b/../gradle.properties
+deleted file mode 100644
+--- a/../gradle.properties	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
++++ /dev/null	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
+@@ -1,19 +0,0 @@
+-# Project-wide Gradle settings.
+-# IDE (e.g. Android Studio) users:
+-# Gradle settings configured through the IDE *will override*
+-# any settings specified in this file.
+-# For more details on how to configure your build environment visit
+-# http://www.gradle.org/docs/current/userguide/build_environment.html
+-# Specifies the JVM arguments used for the daemon process.
+-# The setting is particularly useful for tweaking memory settings.
+-org.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8
+-# When configured, Gradle will run in incubating parallel mode.
+-# This option should only be used with decoupled projects. More details, visit
+-# http://www.gradle.org/docs/current/userguide/multi_project_builds.html#sec:decoupled_projects
+-# org.gradle.parallel=true
+-# AndroidX package structure to make it clearer which packages are bundled with the
+-# Android operating system, and which are packaged with your app"s APK
+-# https://developer.android.com/topic/libraries/support-library/androidx-rn
+-android.useAndroidX=true
+-# Automatically convert third-party libraries to use AndroidX
+-android.enableJetifier=true
+\ No newline at end of file
+Index: ../README.md
+===================================================================
+diff --git a/../README.md b/../README.md
+deleted file mode 100644
+--- a/../README.md	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
++++ /dev/null	(revision 98c65ddf470ea47cc23ac4f45ae80576be69c4b5)
+@@ -1,51 +0,0 @@
+-# Project 1 - *Simple ToDo*
+-
+-**Simple ToDO** is an android app that allows building a todo list and basic todo items management functionality including adding new items, editing and deleting an existing item.
+-
+-Submitted by: **Paul Leung**
+-
+-Time spent: **7** hours spent in total
+-
+-## User Stories
+-
+-The following **required** functionality is completed:
+-
+-* [X] User can **view a list of todo items**
+-* [X] User can **successfully add and remove items** from the todo list
+-* [X] User's **list of items persisted** upon modification and and retrieved properly on app restart
+-
+-The following **optional** features are implemented:
+-
+-* [ ] User can **tap a todo item in the list and bring up an edit screen for the todo item** and then have any changes to the text reflected in the todo list
+-
+-The following **additional** features are implemented:
+-
+-* [ ] List anything else that you can get done to improve the app functionality!
+-
+-## Video Walkthrough
+-
+-Here's a walkthrough of implemented user stories:
+-
+-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+-
+-GIF created with [LiceCap](http://www.cockos.com/licecap/).
+-
+-## Notes
+-
+-Describe any challenges encountered while building the app.
+-
+-## License
+-
+-    Copyright [yyyy] [name of copyright owner]
+-
+-    Licensed under the Apache License, Version 2.0 (the "License");
+-    you may not use this file except in compliance with the License.
+-    You may obtain a copy of the License at
+-
+-        http://www.apache.org/licenses/LICENSE-2.0
+-
+-    Unless required by applicable law or agreed to in writing, software
+-    distributed under the License is distributed on an "AS IS" BASIS,
+-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+-    See the License for the specific language governing permissions and
+-    limitations under the License.
