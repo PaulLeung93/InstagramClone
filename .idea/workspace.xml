@@ -14,10 +14,12 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d4822df-65fd-4772-b9d6-fee04580c379" name="Default Changelist" comment="Post.java file added to git">
+    <list default="true" id="1d4822df-65fd-4772-b9d6-fee04580c379" name="Default Changelist" comment="Implemented logout button on MainActivity.java that sends users back to login screen">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/nav_logo_whiteout.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/InstagramClone.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/InstagramClone.app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/instagramclone/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/instagramclone/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +73,11 @@
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Paul\AndroidStudioProjects\InstagramClone\app\src\main\res\drawable" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
@@ -247,7 +254,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634657417034</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Implemented logout button on MainActivity.java that sends users back to login screen">
+      <created>1634658257234</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1634658257234</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -288,6 +302,7 @@
     <MESSAGE value="SetOnClick Listener for submit button when user enters Post description" />
     <MESSAGE value="Explicit intent for MediaStore.ACTION_IMAGE_CAPTURE on btnCaptureImage click" />
     <MESSAGE value="Post.java file added to git" />
-    <option name="LAST_COMMIT_MESSAGE" value="Post.java file added to git" />
+    <MESSAGE value="Implemented logout button on MainActivity.java that sends users back to login screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented logout button on MainActivity.java that sends users back to login screen" />
   </component>
 </project>
